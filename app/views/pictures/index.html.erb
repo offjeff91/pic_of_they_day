@@ -2,13 +2,20 @@
 
 <h1>Pictures</h1>
 
-<div id="pictures">
-  <% @pictures.each do |picture| %>
-    <%= render picture %>
-    <p>
-      <%= link_to "Show this picture", picture %>
-    </p>
-  <% end %>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>Pictures</th>
+      <th>Text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pictures.each do |picture | %>
+      <tr>
+        <%# <td><%= image_tag(picture.image_url ) %></td> %>
+        <td><%= picture.text %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to "New picture", new_picture_path %>
