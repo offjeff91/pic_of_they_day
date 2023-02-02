@@ -4,7 +4,7 @@ class PicturesController < ApplicationController
 
   # GET /pictures or /pictures.json
   def index
-    @pictures = Picture.all
+    @pictures = Picture.all.with_attached_images
   end
 
   # GET /pictures/1 or /pictures/1.json
@@ -66,6 +66,6 @@ class PicturesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def picture_params
-      params.require(:picture).permit(:text)
+      params.require(:picture).permit(:text, images: [])
     end
 end
